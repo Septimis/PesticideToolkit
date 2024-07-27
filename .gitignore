@@ -1,0 +1,8 @@
+# Prevent appsettings from being uploaded
+appsettings.json
+
+bin/
+obj/
+.vs/
+.vscode/
+*.secret
