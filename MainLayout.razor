@@ -1,5 +1,54 @@
 ﻿@inherits LayoutComponentBase
 
-<main>
-    @Body
-</main>
+<nav id="headerWrapper" class="row">
+	<div class="col logoWrapper">
+		<a href="/">
+			<img class="logoImg" src="assets/header/UState.png" alt="UState_logo" />
+		</a>
+	</div>
+	<div id="menuWrapper" class="col">
+		<div id="linkWrapper" class="row @active">
+			<NavLink href="/" Match="NavLinkMatch.All" ActiveClass="activeHeaderLink" class="headerLinks" @onclick="OnHeaderLinkClick">Home</NavLink>
+			<NavLink href="/howToUse" Match="NavLinkMatch.All" ActiveClass="activeHeaderLink"  id="servicesLink" class="headerLinks" @onclick="OnHeaderLinkClick">How to Use</NavLink>
+			<NavLink href="/model"  Match="NavLinkMatch.All" ActiveClass="activeHeaderLink" class="headerLinks" @onclick="OnHeaderLinkClick">Model</NavLink>
+			<NavLink href="/publications" Match="NavLinkMatch.All" ActiveClass="activeHeaderLink"  class="headerLinks" @onclick="OnHeaderLinkClick">Publications</NavLink>
+			<NavLink href="/contact" Match="NavLinkMatch.All" ActiveClass="activeHeaderLink" class="headerLinks" @onclick="OnHeaderLinkClick">Contact</NavLink>
+		</div>
+	</div>
+	<div id="hamburger" class="@active" @onclick="ToggleActive">
+		<span class="hamburgerBar"></span>
+		<span class="hamburgerBar"></span>
+		<span class="hamburgerBar"></span>
+	</div>
+</nav>
+
+@Body
+
+<div id="footerWrapper" class="row">
+	<div>
+		© 2021 - Pesticide Toolkit
+	</div>
+
+	<div>
+		USDA Award Number <strong>2019-70005-30363</strong>
+	</div>
+</div>
+
+@code
+{
+	// represents the 'active' class dealing with the hamburger menu
+	private string active { get; set; } = string.Empty;
+
+	void ToggleActive()
+	{
+		active = string.IsNullOrEmpty(active) ? "active" : string.Empty;
+	}
+
+	void OnHeaderLinkClick()
+	{
+		if(!string.IsNullOrEmpty(active))
+		{
+			ToggleActive();
+		}
+	}
+}

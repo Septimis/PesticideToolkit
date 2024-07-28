@@ -6,14 +6,14 @@
 :root {
 	--pesticide-green: #b4d4bf;
 	--pesticide-teal: #8bc3b8;
-	--pesticide-blue: #3f7b83;
+	--pesticide-blue: #0F2439
 	--pesticide-gray: #667169;
 	--pesticide-off-white: #fcfcf7;
 }
 
 body {
 	margin: 0px;
-	background-color: var(--mental-off-white);
+	background-color: var(--pesticide-off-white);
 	font-family: 'Montserrat', sans-serif, 'Courier New', Courier, monospace;
 }
 
